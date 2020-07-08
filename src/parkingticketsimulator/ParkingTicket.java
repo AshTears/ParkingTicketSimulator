@@ -16,7 +16,11 @@ public class ParkingTicket {
         car.getCarLicense(),car.getMinsParked());
         
         this.metre = new ParkingMetre(metre.getMinsBought());
+        officer = new PoliceOfficer(off.getName(), off.getBadgeNum());
         
-        officer = new PoliceOfficer();
+    }
+    
+    public String getCarDetails(){
+        return car.toString();
     }
 }
