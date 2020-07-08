@@ -16,6 +16,9 @@ public class ParkingTicketSimulator {
         ParkingMetre  metre = new ParkingMetre(90);
         PoliceOfficer jack = new PoliceOfficer("Jack Dorsey", "3956");
         
+        jack.setCarDetails(car);
+        jack.setMetreDetails(metre);
+        
         System.out.println(jack.issueTicket());
     }
     

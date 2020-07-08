@@ -19,8 +19,8 @@ public class PoliceOfficer {
     }
     
     public void setCarDetails(ParkedCar c){
-        car = new ParkedCar(car.getCarMake(), car.getCarModel(),car.getCarColour(),
-        car.getCarLicense(),car.getMinsParked()); 
+        car = new ParkedCar(c.getCarMake(), c.getCarModel(),c.getCarColour(),
+        c.getCarLicense(),c.getMinsParked()); 
     }
     
     public void setMetreDetails(ParkingMetre m){
@@ -50,12 +50,13 @@ public class PoliceOfficer {
     
     
     public String issueTicket(){
-        if(metre.getMinsBought() <= car.getMinsParked())
+        if(metre.getMinsBought() >= car.getMinsParked())
             return "No ticket";
         else
             return "Issuing a ticket: " + ticket.toString(); 
     }
     
+    @Override
     public String toString(){
         return "Name: " + name + "\nBadge number: " + badge;
     }
