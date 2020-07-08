@@ -40,7 +40,7 @@ public class PoliceOfficer {
         return car.toString();
     }
     
-    public int getMinsBought(){
-        return metre.getMinsBought();
+    public int getMinsParked(){
+        return car.getMinsParked();
     }
 }

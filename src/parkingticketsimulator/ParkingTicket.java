@@ -23,4 +23,25 @@ public class ParkingTicket {
     public String getCarDetails(){
         return car.toString();
     }
+    
+    public double fineAmount(){
+        double total = 0.0;
+        int excessMins = 0;
+        
+        if(metre.getMinsBought() > officer.getMinsParked()){
+            excessMins = metre.getMinsBought() - officer.getMinsParked();
+            total += 25.00;
+        }
+        
+        if(excessMins > 60){
+            int over60 = excessMins - 60;
+            total += over60 * 10;
+        }
+        
+        return total;
+    }
+    
+    public String toString(){
+        return "The car's info: ";
+    }
 }
