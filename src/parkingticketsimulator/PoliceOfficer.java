@@ -50,7 +50,10 @@ public class PoliceOfficer {
     
     
     public String issueTicket(){
-        return "Issuing a ticket: " + ticket.toString(); 
+        if(metre.getMinsBought() <= car.getMinsParked())
+            return "No ticket";
+        else
+            return "Issuing a ticket: " + ticket.toString(); 
     }
     
     public String toString(){
