@@ -42,6 +42,7 @@ public class ParkingTicket {
     }
     
     public String toString(){
-        return "The car's info: ";
+        return "The car's info: " + getCarDetails() + "Amount of fine: " + fineAmount() +
+                "Officer who issued the ticket: " + officer.toString();
     }
 }

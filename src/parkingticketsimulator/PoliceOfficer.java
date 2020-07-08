@@ -27,6 +27,10 @@ public class PoliceOfficer {
         metre = new ParkingMetre(m.getMinsBought());
     }
     
+    public void setTicketDetails(){
+        ticket = new ParkingTicket(car, metre, new PoliceOfficer(name, badge));
+    }
+    
     public String getName(){
         return name;
     }
@@ -42,5 +46,14 @@ public class PoliceOfficer {
     
     public int getMinsParked(){
         return car.getMinsParked();
+    }
+    
+    
+    public String issueTicket(){
+        return "Issuing a ticket: " + ticket.toString(); 
+    }
+    
+    public String toString(){
+        return "Name: " + name + "\nBadge number: " + badge;
     }
 }
