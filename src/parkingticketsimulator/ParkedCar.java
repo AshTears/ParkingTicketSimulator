@@ -74,10 +74,11 @@ public class ParkedCar {
      * toString method
      * @return A string detailing the car's details.
      */
+    @Override
     public String toString(){
-        return "Car's make: " + make + 
-        "Car's model: " + model + 
-        "Car's colour: " + colour + 
-        "Car's license number: " + license;
+        return "\nCar's make: " + make + 
+        "\nCar's model: " + model + 
+        "\nCar's colour: " + colour + 
+        "\nCar's license number: " + license;
     }
 }
