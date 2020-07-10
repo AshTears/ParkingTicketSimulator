@@ -60,6 +60,6 @@ public class PoliceOfficer {
     
     @Override
     public String toString(){
-        return "Name: " + name + "\nBadge number: " + badge;
+        return "\nName: " + name + "\nBadge number: " + badge;
     }
 }
