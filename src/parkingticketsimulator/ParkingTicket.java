@@ -11,27 +11,27 @@ public class ParkingTicket {
     private ParkingMetre metre; // A ParkingMetre object
     private PoliceOfficer officer;  // A PoliceOfficer object
     
-    ParkingTicket(ParkedCar car, ParkingMetre metre, PoliceOfficer off){
-        this.car = new ParkedCar(car.getCarMake(), car.getCarModel(),car.getCarColour(),
-        car.getCarLicense(),car.getMinsParked());
+    ParkingTicket(PoliceOfficer off, ParkedCar car, ParkingMetre m){
         
-        this.metre = new ParkingMetre(metre.getMinsBought());
         officer = new PoliceOfficer(off.getName(), off.getBadgeNum());
-        
+        this.car = new ParkedCar(car.getCarMake(), car.getCarModel(), car.getCarColour(), car.getCarLicense(), car.getMinsParked());
+        metre = new ParkingMetre(m.getMinsBought());
     }
     
     public String getCarDetails(){
-        return car.toString();
+        return "\nCar's make: " + car.getCarMake() + 
+        "\nCar's model: " + car.getCarModel() + 
+        "\nCar's colour: " + car.getCarColour() + 
+        "\nCar's license number: " + car.getCarLicense();
     }
     
     public double fineAmount(){
         double total = 0.0;
         int excessMins = 0;
         
-        if(metre.getMinsBought() > officer.getMinsParked()){
-            excessMins = metre.getMinsBought() - officer.getMinsParked();
-            total += 25.00;
-        }
+        excessMins = car.getMinsParked() - metre.getMinsBought();
+        total += 25.00;
+        
         
         if(excessMins > 60){
             int over60 = excessMins - 60;
@@ -41,8 +41,9 @@ public class ParkingTicket {
         return total;
     }
     
+    @Override
     public String toString(){
-        return "The car's info: " + getCarDetails() + "Amount of fine: " + fineAmount() +
-                "Officer who issued the ticket: " + officer.toString();
+        return "The car's info: " + getCarDetails() + "\nAmount of fine: " + fineAmount() +
+                "\nOfficer who issued the ticket: " + officer.toString();
     }
 }
