@@ -20,15 +20,15 @@ public class PoliceOfficer {
     
     public void setCarDetails(ParkedCar c){
         car = new ParkedCar(c.getCarMake(), c.getCarModel(),c.getCarColour(),
-        c.getCarLicense(),c.getMinsParked()); 
+        c.getCarLicense(),c.getMinsParked());        
     }
     
     public void setMetreDetails(ParkingMetre m){
         metre = new ParkingMetre(m.getMinsBought());
     }
     
-    public void setTicketDetails(){
-        ticket = new ParkingTicket(car, metre, new PoliceOfficer(name, badge));
+    public int getMinsBought(){
+        return metre.getMinsBought();
     }
     
     public String getName(){
@@ -50,10 +50,12 @@ public class PoliceOfficer {
     
     
     public String issueTicket(){
-        if(metre.getMinsBought() >= car.getMinsParked())
+        if(getMinsBought() >= getMinsParked())
             return "No ticket";
-        else
-            return "Issuing a ticket: " + ticket.toString(); 
+        else{
+            ticket = new ParkingTicket(new PoliceOfficer(name, badge), car, metre);
+            return "Issuing a ticket:\n" + ticket;
+        }
     }
     
     @Override
