@@ -12,7 +12,7 @@ public class ParkingTicketSimulator {
      */
     public static void main(String[] args) {
         
-        ParkedCar car = new ParkedCar("Hyundai", "Sonata", "black", "F9U 3E0", 95);
+        ParkedCar car = new ParkedCar("Hyundai", "Sonata", "black", "F9U 3E0", 180);
         ParkingMetre  metre = new ParkingMetre(90);
         PoliceOfficer jack = new PoliceOfficer("Jack Dorsey", "3956");
         
